@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Width Example</title>
+    <style>
+        #myElement {
+            /* Set the width of the element */
+            height: 100px; /* Optional height */
+            background-color: lightblue; /* Just for visibility */
+        }
+    </style>
+</head>
+<body>
+
+<div id="myElement">Content goes here</div>
+
+<script>
+    function getWidth(id) {
+        var element = document.getElementById(id);
+        if (element) {
+            var width = element.clientWidth; 
+            return width + " px"; 
+        } else {
+            return "Element not found";
+        }
+    }
+
+    var width = getWidth("myElement");
+    document.getElementById("myElement").innerHTML = `<h1>The width is: ${width}</h1>`;
+
+    console.log(width);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function printMostCommonWords(text){
+
+    const words = text.toLowerCase().match(/\b\w+\b/g);
+
+    if (!words) {
+        console.log('No words found');
+        return;
+    }
+    const wordCounts = {};
+    words.forEach(word => {
+        wordCounts[word] = (wordCounts[word] || 0) + 1;
+    });
+    const sortedWords = Object.entries(wordCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+    sortedWords.forEach(([word, count]) => {
+        console.log(`${word}: ${count}`);
+    });
+}
+
+
+const text = 'Watch out for casing. The JavaScript compiler does not think a lowercase and an uppercase letter are the same letter the way humans do. To avoid this, set the entire string to be in lowercase.';
+printMostCommonWords(text);
+
+</script>
+</body>
+</html>
